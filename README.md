@@ -22,7 +22,7 @@ Beyond basic categorization, the platform features a fully integrated **RAG-powe
 ```mermaid
 graph TD
 
-    subgraph FE["🖥️ Frontend · Browser"]
+    subgraph FE["🖥️ Frontend · Deployed on Vercel"]
         React["⚛️ React 18 + Vite — SPA · Code Splitting · PWA"]
         State["🗂️ State — Context API · Optimistic Updates"]
         Charts["📊 Recharts — D3-powered · Responsive Visuals"]
@@ -30,7 +30,7 @@ graph TD
         React --- Charts
     end
 
-    subgraph BE["⚙️ Backend · Django"]
+    subgraph BE["⚙️ Backend · Deployed on Render"]
         Django["🐍 Django REST Framework — JWT · Throttling · OpenAPI"]
         Pandas["🔬 Pandas Pipeline — ETL · Aggregations · CSV/XLSX Export"]
         Django --- Pandas
@@ -71,8 +71,8 @@ graph TD
 ```
 
 ### 🛠 Tech Stack
-*   **Frontend (Client):** React 18+, Vite, Tailwind CSS, Recharts (6-month Predictive Analytics Tree, Volume Segmentation), i18n, React Context.
-*   **Backend (API & Processing):** Django, Django REST Framework (DRF), Pandas for robust data ingestion.
+*   **Frontend (Client):** React 18+, Vite, Tailwind CSS, Recharts (6-month Predictive Analytics Tree, Volume Segmentation), i18n, React Context. Deployed on Vercel.
+*   **Backend (API & Processing):** Django, Django REST Framework (DRF), Pandas for robust data ingestion. Deployed on Render.
 *   **Database:** Serverless PostgreSQL hosted on Neon.tech.
 *   **AI & RAG:** OpenAI API (GPT-4o-mini) utilizing advanced Prompt Engineering, Structured Outputs (Pydantic), and Function Calling.
 *   **Payments & Auth:** Paddle (Merchant of Record) via secure webhooks, django-allauth (JWT + Google OAuth2).
