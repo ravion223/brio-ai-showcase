@@ -1,7 +1,7 @@
 <div align="center">
   <img src="./assets/hero-mockup.png" alt="Brio AI Hero Mockup" width="100%" />
 
-  # Brio AI — ✨ Freemium SaaS Financial Analytics
+  # Brio AI — Freemium SaaS Financial Analytics
   
   [![Live App](https://img.shields.io/badge/Live_App-Emerald?style=for-the-badge&logo=vercel)](https://brioai.co/)
   [![Video Demo](https://img.shields.io/badge/Video_Demo-YouTube-red?style=for-the-badge&logo=youtube)](#)
@@ -17,33 +17,57 @@ Brio AI is a comprehensive freemium financial analytics platform designed to eli
 
 Beyond basic categorization, the platform features a fully integrated **RAG-powered AI Assistant** capable of context-aware financial assisting, and seamless handling of user billing and internal premium upgrades via secure Paddle webhooks.
 
-## System Architecture & Tech Stack
+# System Architecture & Tech Stack
 
 ```mermaid
 graph TD
-    subgraph Frontend
-        React[React 18 + Vite]
-        State[Context + Zustand]
-        Charts[Recharts]
+
+    subgraph FE["🖥️ Frontend · Browser"]
+        React["⚛️ React 18 + Vite — SPA · Code Splitting · PWA"]
+        State["🗂️ State — Context API · Zustand · Optimistic Updates"]
+        Charts["📊 Recharts — D3-powered · Responsive Visuals"]
+        React --- State
+        React --- Charts
     end
 
-    subgraph Backend
-        Django[Django REST Framework]
-        Pandas[Pandas Data Pipeline]
+    subgraph BE["⚙️ Backend · Django"]
+        Django["🐍 Django REST Framework — JWT · Throttling · OpenAPI"]
+        Pandas["🔬 Pandas Pipeline — ETL · Aggregations · CSV/XLSX Export"]
+        Django --- Pandas
     end
 
-    subgraph Infrastructure & External APIs
-        DB[(Neon Serverless PostgreSQL)]
-        OpenAI[OpenAI API]
-        Paddle[Paddle Merchant of Record]
-        PostHog[PostHog Analytics]
+    subgraph INFRA["☁️ Infrastructure & External Services"]
+        DB[("🗄️ Neon PostgreSQL — Serverless · Branching · Pooling")]
+        OpenAI["🤖 OpenAI API — Structured Outputs · RAG · Embeddings"]
+        Paddle["💳 Paddle — Merchant of Record · Global Tax Handling"]
+        PostHog["📡 PostHog — Product Analytics · Session Recording"]
     end
 
-    React <-->|REST API / JWT| Django
+    React <-->|HTTPS · REST API · JWT| Django
     React -->|GDPR-Compliant Telemetry| PostHog
-    Django <-->|ORM| DB
-    Django <-->|Structured Outputs / RAG| OpenAI
-    Paddle -->|HMAC Webhooks| Django
+    Django <-->|Django ORM · Indexed Queries| DB
+    Django <-->|Structured Outputs · RAG| OpenAI
+    Paddle -->|HMAC-signed Webhooks| Django
+
+    %% ── Node Styles ─────────────────────────────────────────────
+    classDef frontendNode  fill:#1d3557,stroke:#457b9d,stroke-width:2px,color:#a8dadc
+    classDef backendNode   fill:#2d1b4e,stroke:#7c4dff,stroke-width:2px,color:#ce93d8
+    classDef dbNode        fill:#1b3a2d,stroke:#2e7d52,stroke-width:2px,color:#a5d6a7
+    classDef aiNode        fill:#3e2723,stroke:#ff7043,stroke-width:2px,color:#ffccbc
+    classDef paymentsNode  fill:#1a237e,stroke:#3f51b5,stroke-width:2px,color:#c5cae9
+    classDef analyticsNode fill:#37474f,stroke:#546e7a,stroke-width:2px,color:#b0bec5
+
+    class React,State,Charts frontendNode
+    class Django,Pandas backendNode
+    class DB dbNode
+    class OpenAI aiNode
+    class Paddle paymentsNode
+    class PostHog analyticsNode
+
+    %% ── Subgraph Styles ─────────────────────────────────────────
+    style FE    fill:#0d1b2a,stroke:#457b9d,stroke-width:2px,color:#a8dadc
+    style BE    fill:#1a0a2e,stroke:#7c4dff,stroke-width:2px,color:#ce93d8
+    style INFRA fill:#0d1a14,stroke:#2e7d52,stroke-width:2px,color:#a5d6a7
 ```
 
 ### 🛠 Tech Stack
