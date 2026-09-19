@@ -24,7 +24,7 @@ graph TD
 
     subgraph FE["🖥️ Frontend · Browser"]
         React["⚛️ React 18 + Vite — SPA · Code Splitting · PWA"]
-        State["🗂️ State — Context API · Zustand · Optimistic Updates"]
+        State["🗂️ State — Context API · Optimistic Updates"]
         Charts["📊 Recharts — D3-powered · Responsive Visuals"]
         React --- State
         React --- Charts
