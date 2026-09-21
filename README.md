@@ -1,12 +1,18 @@
 <div align="center">
-  <img src="./assets/hero-mockup.png" alt="Brio AI Hero Mockup" width="100%" />
-
+  <a href="https://youtu.be/iMvvE2OpH8M" target="_blank">
+    <img src="./assets/hero-mockup.png" alt="Brio AI Hero Mockup - Click to watch demo" width="100%" />
+  </a>
+  
   # Brio AI — Freemium SaaS Financial Analytics
   
   [![Live App](https://img.shields.io/badge/Live_App-Emerald?style=for-the-badge&logo=vercel)](https://brioai.co/)
   [![Video Demo](https://img.shields.io/badge/Video_Demo-YouTube-red?style=for-the-badge&logo=youtube)](https://youtu.be/iMvvE2OpH8M)
   
   > **Note:** Brio AI is a proprietary micro-SaaS application. This repository serves as a technical showcase of its architecture, engineering challenges, and sanitized code snippets to demonstrate code quality and architectural patterns.
+  <br>
+  
+  ### 📺 [Watch the 3-minute Architectural Walkthrough](https://youtu.be/iMvvE2OpH8M)
+  *See the Pandas pipeline, RAG-assistant, and Paddle webhooks in action.*
 </div>
 
 ---
@@ -71,7 +77,7 @@ graph TD
 ```
 
 ### 🛠 Tech Stack
-*   **Frontend (Client):** React 18+, Vite, Tailwind CSS, Recharts (6-month Predictive Analytics Tree, Volume Segmentation), i18n, React Context. Deployed on Vercel.
+*   **Frontend (Client):** React 18+, Vite, Tailwind CSS, Recharts (6-month Predictive Spending Trend, Volume Segmentation), i18n, React Context. Deployed on Vercel.
 *   **Backend (API & Processing):** Django, Django REST Framework (DRF), Pandas for robust data ingestion. Deployed on Render.
 *   **Database:** Serverless PostgreSQL hosted on Neon.tech.
 *   **AI & RAG:** OpenAI API (GPT-4o-mini) utilizing advanced Prompt Engineering, Structured Outputs (Pydantic), and Function Calling.
