@@ -23,6 +23,31 @@ Brio AI is a comprehensive freemium financial analytics platform designed to eli
 
 Beyond basic categorization, the platform features a fully integrated **RAG-powered AI Assistant** capable of context-aware financial assisting, and seamless handling of user billing and internal premium upgrades via secure Paddle webhooks.
 
+## 🖥 UI & Feature Gallery
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="./assets/dashboard-overview.png" alt="Dashboard Overview" width="100%"/>
+      <br><b>Interactive Data Dashboard</b>
+    </td>
+    <td align="center">
+      <img src="./assets/ai-assistant-chat.png" alt="AI Mentor Chat" width="100%"/>
+      <br><b>RAG-Powered Contextual Assistant</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./assets/interactive-transactions-table.png" alt="Transactions Table" width="100%"/>
+      <br><b>Memoized Client-Side Filtering</b>
+    </td>
+    <td align="center">
+      <img src="./assets/landing-pricing.png" alt="Pricing & Freemium" width="100%"/>
+      <br><b>Freemium & Paddle Integration</b>
+    </td>
+  </tr>
+</table>
+
 # System Architecture & Tech Stack
 
 ```mermaid
