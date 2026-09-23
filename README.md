@@ -150,3 +150,10 @@ The `/core-snippets` directory contains sanitized, production-ready code samples
 *   [`AnalysisForm.tsx`](./core-snippets/frontend/AnalysisForm.tsx) — A complex, localized Drag-and-Drop UI component with event-driven PostHog analytics tracking and dynamic Tailwind styling.
 *   [`useSidebarData.ts`](./core-snippets/frontend/useSidebarData.ts) — A custom hook demonstrating the "Headless Component" pattern: separating business logic, managing local state updates (to avoid network refetches), and handling client-side pagination.
 *   [`ThemeProvider.tsx`](./core-snippets/frontend/ThemeProvider.tsx) — An enterprise-grade theme provider featuring system preference media queries, dynamic favicon swapping, and cross-tab synchronization via Storage events.
+
+## 🔒 Privacy & Data Minimization
+
+Security and privacy are foundational to Brio AI's architecture. The platform operates on a strict **data minimization** principle:
+* **In-Memory Processing:** Uploaded statements (CSV/XLSX) are parsed entirely in-memory and immediately purged. Raw bank files are never stored on our servers.
+* **No PII Storage:** The ingestion pipeline extracts only transaction amounts, dates, and vendor descriptions. Personally Identifiable Information (Name, Tax ID, Address) is systematically ignored.
+* **User Control:** For maximum peace of mind, users can manually delete any rows containing sensitive personal details prior to upload without breaking the parsing strategy.
