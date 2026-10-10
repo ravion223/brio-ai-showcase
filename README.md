@@ -11,7 +11,7 @@
   > **Note:** Brio AI is a proprietary micro-SaaS application. This repository serves as a technical showcase of its architecture, engineering challenges, and sanitized code snippets to demonstrate code quality and architectural patterns.
   <br>
   
-  ### 📺 [Watch the 3-minute Architectural Walkthrough](https://youtu.be/iMvvE2OpH8M)
+  ### 📺 [Watch the 3-minute Architectural Walkthrough](https://youtu.be/sTOwhpTSoM8)
   *See the Pandas pipeline, RAG-assistant, and Paddle webhooks in action.*
 </div>
 
