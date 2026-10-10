@@ -1,12 +1,12 @@
 <div align="center">
-  <a href="https://youtu.be/iMvvE2OpH8M" target="_blank">
+  <a href="https://youtu.be/sTOwhpTSoM8" target="_blank">
     <img src="./assets/hero-mockup.png" alt="Brio AI Hero Mockup - Click to watch demo" width="100%" />
   </a>
   
   # Brio AI — Freemium SaaS Financial Analytics
   
   [![Live App](https://img.shields.io/badge/Live_App-Emerald?style=for-the-badge&logo=vercel)](https://brioai.co/)
-  [![Video Demo](https://img.shields.io/badge/Video_Demo-YouTube-red?style=for-the-badge&logo=youtube)](https://youtu.be/iMvvE2OpH8M)
+  [![Video Demo](https://img.shields.io/badge/Video_Demo-YouTube-red?style=for-the-badge&logo=youtube)](https://youtu.be/sTOwhpTSoM8)
   
   > **Note:** Brio AI is a proprietary micro-SaaS application. This repository serves as a technical showcase of its architecture, engineering challenges, and sanitized code snippets to demonstrate code quality and architectural patterns.
   <br>
