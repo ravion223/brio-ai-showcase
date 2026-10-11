@@ -74,11 +74,11 @@ graph TD
         PostHog["📡 PostHog — Product Analytics · Session Recording"]
     end
 
-    React <-->|HTTPS · REST API · JWT| Django
-    React -->|GDPR-Compliant Telemetry| PostHog
-    Django <-->|Django ORM · Indexed Queries| DB
-    Django <-->|Structured Outputs · RAG| OpenAI
-    Paddle -->|HMAC-signed Webhooks| Django
+    React <-->|🔒 HTTPS · REST API · JWT| Django
+    React -->|🛡️ GDPR-Compliant Telemetry| PostHog
+    Django <-->|⚡ Django ORM · Indexed Queries| DB
+    Django <-->|🧠 Structured Outputs · RAG| OpenAI
+    Paddle -->|🔐 HMAC-signed Webhooks| Django
 
     %% ── Node Styles ─────────────────────────────────────────────
     classDef frontendNode  fill:#1d3557,stroke:#457b9d,stroke-width:2px,color:#a8dadc
@@ -99,6 +99,15 @@ graph TD
     style FE    fill:#0d1b2a,stroke:#457b9d,stroke-width:2px,color:#a8dadc
     style BE    fill:#1a0a2e,stroke:#7c4dff,stroke-width:2px,color:#ce93d8
     style INFRA fill:#0d1a14,stroke:#2e7d52,stroke-width:2px,color:#a5d6a7
+
+    %% ── Link Styles ─────────────────────────────────────────────
+    linkStyle 0,1 stroke:#457b9d,stroke-width:1.5px,stroke-dasharray: 3 3
+    linkStyle 2   stroke:#7c4dff,stroke-width:1.5px,stroke-dasharray: 3 3
+    linkStyle 3   stroke:#457b9d,stroke-width:2px,color:#a8dadc
+    linkStyle 4   stroke:#546e7a,stroke-width:2px,color:#b0bec5
+    linkStyle 5   stroke:#2e7d52,stroke-width:2px,color:#a5d6a7
+    linkStyle 6   stroke:#ff7043,stroke-width:2px,color:#ffccbc
+    linkStyle 7   stroke:#3f51b5,stroke-width:2px,color:#c5cae9
 ```
 
 ### 🛠 Tech Stack
