@@ -1,10 +1,22 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-// Note: This snippet demonstrates an advanced Theme Provider for Brio AI featuring
-// system preference media queries, cross-tab synchronization via Storage events,
-// and dynamic favicon swapping based on the active theme.
+// Note: This snippet demonstrates an enterprise-grade Theme Provider for Brio AI featuring
+// centralized theme options, system preference media queries, cross-tab synchronization via
+// Storage events, dynamic SVG favicon swapping, and browser chrome tinting.
 
-type Theme = "light" | "dark" | "system";
+export type Theme = "light" | "dark" | "system";
+
+export interface ThemeOption {
+  value: Theme;
+  labelKey: string;
+}
+
+// Centralized options shared across settings panels, footer dropdowns, and toggles
+export const THEME_OPTIONS: ThemeOption[] = [
+  { value: "light", labelKey: "settings.themeOptions.lightTheme" },
+  { value: "dark", labelKey: "settings.themeOptions.darkTheme" },
+  { value: "system", labelKey: "settings.themeOptions.autoTheme" },
+];
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -20,6 +32,23 @@ const ThemeProviderContext = createContext<ThemeProviderState | undefined>(
   undefined,
 );
 
+/**
+ * iOS Safari ignores dynamic <meta name="theme-color"> changes on class toggles.
+ * Briefly mounting a hidden fixed probe forces Safari's compositor to resample the top-edge
+ * color immediately so status bar and notch tinting blend seamlessly.
+ */
+const forceSafariChromeResample = () => {
+  const probe = document.createElement("div");
+  probe.setAttribute("aria-hidden", "true");
+  probe.style.cssText =
+    "position:fixed;inset:0;pointer-events:none;z-index:2147483647;background:rgba(0,0,0,0.01);";
+  document.body.appendChild(probe);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => probe.remove());
+  });
+};
+
 export function ThemeProvider({
   children,
   defaultTheme = "system",
@@ -28,7 +57,7 @@ export function ThemeProvider({
     return (localStorage.getItem("ui-theme") as Theme) || defaultTheme;
   });
 
-  // Handle DOM updates and System theme listeners
+  // Handle DOM updates, dynamic favicons, meta tags, and system preference listeners
   useEffect(() => {
     const root = window.document.documentElement;
 
@@ -45,7 +74,16 @@ export function ThemeProvider({
       root.classList.add(resolvedTheme);
       root.style.colorScheme = resolvedTheme;
 
-      // Dynamic favicon swapping for better OS-level integration
+      // Keep browser chrome (status bar / navigation tint) synchronized
+      const themeColor = resolvedTheme === "dark" ? "#07080A" : "#ffffff";
+      const oldMeta = document.querySelector('meta[name="theme-color"]');
+      const newMeta = document.createElement("meta");
+      newMeta.name = "theme-color";
+      newMeta.content = themeColor;
+      if (oldMeta) oldMeta.replaceWith(newMeta);
+      else document.head.appendChild(newMeta);
+
+      // Dynamic favicon swapping for seamless OS-level integration
       const favicon = document.getElementById("app-favicon") as HTMLLinkElement;
       if (favicon) {
         favicon.href =
@@ -54,10 +92,15 @@ export function ThemeProvider({
     };
 
     applyTheme();
+    forceSafariChromeResample();
+    localStorage.setItem("ui-theme", theme);
 
     if (theme === "system") {
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-      const handleChange = () => applyTheme();
+      const handleChange = () => {
+        applyTheme();
+        forceSafariChromeResample();
+      };
 
       mediaQuery.addEventListener("change", handleChange);
       return () => mediaQuery.removeEventListener("change", handleChange);
@@ -91,7 +134,7 @@ export function ThemeProvider({
   );
 }
 
-// Custom Hook to use in any component
+// Custom Hook to consume theme state in any component
 export const useTheme = () => {
   const context = useContext(ThemeProviderContext);
   if (context === undefined) {
